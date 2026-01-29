@@ -33,9 +33,22 @@ class GerenciadorDeTarefas:
         for tarefa in self.tarefas:
             print(tarefa)
 
+    def buscar_tarefa_por_id(self, id):
+        for tarefa in self.tarefas:
+            if tarefa.id == id:
+                return tarefa
+        return None
+
 
 if __name__ == "__main__":
     gerenciador = GerenciadorDeTarefas()
     gerenciador.criar_tarefa("Estudar Python")
     gerenciador.criar_tarefa("Fazer o desafio da Semana 2")
     gerenciador.listar_tarefas()
+
+    tarefa = gerenciador.buscar_tarefa_por_id(1)
+    if tarefa:
+        print("\n🔍 Tarefa encontrada:")
+        print(tarefa)
+    else:
+        print("\n❌ Tarefa não encontrada.")
